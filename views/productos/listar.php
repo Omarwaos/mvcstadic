@@ -6,6 +6,6 @@
     <title>Productos</title>
 </head>
 <body>
-    <h1>Listar</h1>
+    <h1>Listar productos activos</h1>
 </body>
 </html>
