@@ -24,3 +24,8 @@ INSERT INTO productos
 
 SELECT * FROM productos;
 
+SELECT 
+  id, clasificacion, marca, descripcion, garantia, ingreso, cantidad
+FROM productos
+ORDER BY id DESC;
+
