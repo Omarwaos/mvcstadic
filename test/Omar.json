@@ -1,0 +1,14 @@
+{
+  "apellidos": "Ramos Palomino",
+  "nombres": "Omar Angel",
+  "lenguajes": ["HTML","CSS","Python","Java"],
+  "amigos": ["Julio","Estefano","Miguel","Francisco"],
+  "edad": 20,
+  "estatura": 1.72,
+  "formacion": {
+    "inicial": ["Santo Domingo de Guzmán"],
+    "primaria": ["I.E San Agustín","I.E.P Dartnell"],
+    "secundaria": ["I.E San Agustín"],
+    "carrera": ["SENATI"]
+  }
+}
