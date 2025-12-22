@@ -132,8 +132,29 @@ class Producto extends Conexion{
     }
   }
 
-  public function buscar(){
+  public function buscar($id): array{
+    try{
+      //1. Crear la consulta SQL
+      $sql="
+      SELECT 
+        id, clasificacion, marca, descripcion, garantia, ingreso, cantidad
+        FROM productos
+        WHERE id = ?
+      ";
+      //2. Enviar la consulta preparada a PDO
+      $consulta = $this->pdo->prepare($sql);
 
+      //3. Ejecutar la consulta
+      $consulta->execute(array($id));
+
+      //4. Entregar resultado
+      //fetchALL (colección de arreglos)
+      //PDO::FETCH_ASSOC (los valores son asociativos)
+      return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(Exception $e){
+      return [];
+    }
   }
 
 }
