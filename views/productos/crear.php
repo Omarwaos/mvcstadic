@@ -10,6 +10,8 @@
 <body>
     <div class="container">
         <h1>Registro de Productos</h1>
+        <a href="./listar.php" class="btn btn-primary">Lista de productos</a>
+        <hr>
         <form action="" id="form-producto">
             <div class="card">
                 <div class ="card-header">Complete el formulario</div>
@@ -87,7 +89,17 @@
             })
 
         .then(response => response.json())
-        .then(data =>{console.log(data)})
+        .then(data =>{
+           //console.log(data)
+            if(data.id>0){
+
+                document.querySelector("#form-producto").reset()
+                alert("Producto registrado con ID: "+data.id)
+            }else{
+                alert("Error al registrar el producto...")
+            }
+        
+        })
 
 
             alert("Datos guardados correctamente...")
