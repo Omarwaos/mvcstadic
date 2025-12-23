@@ -1,7 +1,7 @@
 <?php
 
-require_once '../app/models/Producto.php';
+require_once '../app/models/Proveedor.php';
 
-$producto = new Producto();
+$proveedor = new Proveedor();
 
-print_r($producto->buscar(3));
+print_r($proveedor->buscar(2));
