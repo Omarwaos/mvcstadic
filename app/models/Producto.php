@@ -132,13 +132,11 @@ class Producto extends Conexion{
     }
   }
 
-  public function buscar($id): array{
+  public function buscarPorId($id): array{
     try{
       //1. Crear la consulta SQL
       $sql="
-      SELECT 
-        id, clasificacion, marca, descripcion, garantia, ingreso, cantidad
-        FROM productos
+      SELECT * FROM productos
         WHERE id = ?
       ";
       //2. Enviar la consulta preparada a PDO
@@ -153,8 +151,30 @@ class Producto extends Conexion{
       return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
     catch(Exception $e){
-      return [];
+      die($e->getMessage());
     }
   }
 
+  public function buscarPorMarca($marca):array{
+    try{
+      $sql="
+      SELECT * FROM productos
+        WHERE marca = ?
+      ";
+      $consulta=$this->pdo->prepare($sql);
+
+      $consulta->execute(array($marca));
+
+      return $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+    }catch(Exception $e){
+      die($e->getMessage());
+    }
+  }
+
+  
 }
+
+  //producto buscado por ID
+  //$producto = new Producto();
+  //print_r($producto->buscarPorId(1));

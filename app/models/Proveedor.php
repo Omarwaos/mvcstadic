@@ -94,7 +94,7 @@ public function actualizar($registros=[]):int{
     origen      =?,
     contacto    =?,
     confianza   =?,
-    updated     now()
+    updated     =NOW()
     WHERE id    =?
   ";
     $consulta=$this->pdo->prepare($sql);
@@ -117,7 +117,27 @@ public function actualizar($registros=[]):int{
   catch(Exception $e){
     return -1;
   }
+}
+
+public function buscar($id): array{
+   try{
+      $sql="
+      SELECT 
+        id, razonsocial, ruc, telefono, origen, contacto, confianza
+        FROM proveedores
+        WHERE id = ?
+      ";
+      $consulta = $this->pdo->prepare($sql);
+
+      $consulta->execute(array($id));
+
+      return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(Exception $e){
+      return [];
+    }
 
 }
+
 
 }
